@@ -1,22 +1,37 @@
+using System.Collections;
 using BehaviorDesigner.Runtime;
 using UnityEngine;
 
 public class WaveAttackBot : MonoBehaviour
 {
     [SerializeField] private ExternalBehaviorTree _behaviorTreeAsset;
-    [SerializeField] private GameObject _target;
+    [SerializeField] private float _waveInterval;
+    [SerializeField] private float _waveDuration;
+    [SerializeField] private float _fieldOfWievAngleCanSee;
+    [SerializeField] private float _wievDistanceCanSee;
+    [SerializeField] private GameObject _idlePoint;
+    [SerializeField] private GameObject _heroTarget;
+
+    private BehaviorTree _behavior;
     
     
-    private void Start()
+    private IEnumerator  Start()
     {
-        var behavior = gameObject.AddComponent<BehaviorTree>();
-        behavior.ExternalBehavior = _behaviorTreeAsset;
+        _behavior = gameObject.AddComponent<BehaviorTree>();
+        _behavior.ExternalBehavior = _behaviorTreeAsset;
+        _behavior.StartWhenEnabled = false;
         
-        // Здесь установить в глобальную переменную Target = _target
-        SharedGameObject sharedTarget = new SharedGameObject();
-        sharedTarget.Value = _target;
-        GlobalVariables.Instance.SetVariable("Target", sharedTarget);
+        yield return null;
         
-        behavior.EnableBehavior();
+        _behavior.SetVariable("WaveInterval", (SharedFloat)_waveInterval);
+        _behavior.SetVariable("WaveDuration", (SharedFloat)_waveDuration);
+        _behavior.SetVariable("FieldOfWievAngleCanSee", (SharedFloat)_fieldOfWievAngleCanSee);
+        _behavior.SetVariable("WievDistanceCanSee", (SharedFloat)_wievDistanceCanSee);
+        _behavior.SetVariable("IdlePoint", (SharedGameObject)_idlePoint);
+        _behavior.SetVariable("HeroTarget", (SharedGameObject)_heroTarget);
+        
+        yield return new WaitForEndOfFrame();
+        
+        _behavior.EnableBehavior();
     }
 }
