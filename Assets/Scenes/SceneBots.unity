@@ -1399,13 +1399,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88720004920d96d42a61c1dcd1580d95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _behaviorTreeAsset: {fileID: 11400000, guid: 30bf7278cd0a1294b873cd2cc8f75cef, type: 2}
-  _waveInterval: 3
-  _waveDuration: 1
-  _fieldOfWievAngleCanSee: 60
-  _wievDistanceCanSee: 7
-  _idlePoint: {fileID: 1688182826}
+  _behaviorTreeAsset: {fileID: 11400000, guid: 1ef87df96fff9504f81ca4cccc0b89f9, type: 2}
   _heroTarget: {fileID: 2969130948060844718}
+  _attackRange: 5
+  _attackWindup: 5
+  _attackCooldown: 5
+  _attackDuration: 5
+  _fieldOfViewAngle: 360
+  _viewDistance: 10
+  _speedMoving: 7
+  _seekArriveDistance: 4
 --- !u!195 &2048982814
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2665,13 +2668,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88720004920d96d42a61c1dcd1580d95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _behaviorTreeAsset: {fileID: 11400000, guid: 30bf7278cd0a1294b873cd2cc8f75cef, type: 2}
-  _waveInterval: 2
-  _waveDuration: 1
-  _fieldOfWievAngleCanSee: 45
-  _wievDistanceCanSee: 10
-  _idlePoint: {fileID: 1604449619}
+  _behaviorTreeAsset: {fileID: 11400000, guid: 1ef87df96fff9504f81ca4cccc0b89f9, type: 2}
   _heroTarget: {fileID: 2969130948060844718}
+  _attackRange: 5
+  _attackWindup: 5
+  _attackCooldown: 5
+  _attackDuration: 5
+  _fieldOfViewAngle: 360
+  _viewDistance: 10
+  _speedMoving: 7
+  _seekArriveDistance: 4
 --- !u!54 &8499135103936719075
 Rigidbody:
   m_ObjectHideFlags: 0

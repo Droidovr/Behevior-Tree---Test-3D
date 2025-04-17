@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BotWaveAttack
   m_EditorClassIdentifier: 
   mBehaviorSource:
-    behaviorName: Behavior
+    behaviorName: BotWaveAttack
     behaviorDescription: 
     mTaskData:
       types: []
