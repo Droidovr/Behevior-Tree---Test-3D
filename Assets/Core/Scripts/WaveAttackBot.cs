@@ -15,13 +15,11 @@ public class WaveAttackBot : MonoBehaviour
     private BehaviorTree _behavior;
     
     
-    private IEnumerator  Start()
+    private void Awake()
     {
-        _behavior = gameObject.AddComponent<BehaviorTree>();
+   _behavior = gameObject.AddComponent<BehaviorTree>();
         _behavior.ExternalBehavior = _behaviorTreeAsset;
         _behavior.StartWhenEnabled = false;
-        
-        yield return null;
         
         _behavior.SetVariable("WaveInterval", (SharedFloat)_waveInterval);
         _behavior.SetVariable("WaveDuration", (SharedFloat)_waveDuration);
@@ -29,8 +27,6 @@ public class WaveAttackBot : MonoBehaviour
         _behavior.SetVariable("WievDistanceCanSee", (SharedFloat)_wievDistanceCanSee);
         _behavior.SetVariable("IdlePoint", (SharedGameObject)_idlePoint);
         _behavior.SetVariable("HeroTarget", (SharedGameObject)_heroTarget);
-        
-        yield return new WaitForEndOfFrame();
         
         _behavior.EnableBehavior();
     }
